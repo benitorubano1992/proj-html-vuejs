@@ -1,9 +1,81 @@
+@use "./partials/variables" as *;
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 
-body {
-    background-color: red;
+/*reset*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-h1 {
-    color: blue;
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    background-color: $bg-red;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+}
+
+.btn-action {
+    background-color: $color-bt;
+    color: white;
+}
+
+.active {
+    color: $color-bt;
+}
+
+.btn-interaction {
+    color: white;
+    border: 2px solid white;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.container-small {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-big {
+    width: 50%;
+    border: 1px solid black;
+}
+
+.col-aside-card {
+    width: 45%;
+    border: 1px solid red;
+}
+
+.card-sm {
+    display: flex;
+}
+
+.title-card-box-text {
+    color: $color-bt;
 }

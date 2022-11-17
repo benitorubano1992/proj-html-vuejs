@@ -1,5 +1,13 @@
 <script>
+import AppHeader from './components/AppHeader.vue';
+import AppMain from './components/AppMain.vue';
+import AppFooter from './components/AppFooter.vue';
 export default {
+  components: {
+    AppHeader,
+    AppMain,
+    AppFooter
+  },
   data() {
     return {
 
@@ -8,8 +16,9 @@ export default {
 }
 </script>
 <template>
-  <h1>Applicazione funzionante</h1>
-  <p> <i class="fa-solid fa-droplet" v-for="n in 4"></i></p>
+  <AppHeader />
+  <AppMain />
+  <AppFooter />
 </template>
 <style lang="scss">
 @use "./style/general.scss" as *;
