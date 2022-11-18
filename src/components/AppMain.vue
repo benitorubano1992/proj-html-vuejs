@@ -1,12 +1,69 @@
 <script>
+import sectionValue from './sectionValue.vue';
+import CardImage from './CardImage.vue';
 export default {
     name: "AppMain",
+    components: {
+        sectionValue,
+        CardImage,
+    },
     data() {
         return {
+            valuesList: [{
+                title: "Clean Water",
+                class: "fa-droplet",
+                text: "Nullam convalis,orci in congue aliquet diam mauris curson urna id maximum lectus magna maximus"
+            },
+            {
+                title: "Vaccinations",
+                class: "fa-stethoscope",
+                text: "Nullam convalis,orci in congue aliquet diam mauris curson urna id maximum lectus magna maximus"
+            },
+            {
+                title: "Education",
+                class: "fa-graduation-cap",
+                text: "Nullam convalis,orci in congue aliquet diam mauris curson urna id maximum lectus magna maximus"
+
+
+            },
+            {
+                title: "Farming",
+                class: "fa-wheat-awn",
+                text: "Nullam convalis,orci in congue aliquet diam mauris curson urna id maximum lectus magna maximus"
+            }
+
+
+            ],
+            urlImageCause: ["avada-charity-fair-trade-featured-200x150.jpg", "avada-charity-farming-featured-200x150.jpg",
+                "avada-charity-shelter-featured-200x150.jpg", "avada-charity-vaccines-featured-200x150.jpg"],
+            urlImageAside: [{
+                url: "photo-1444664597500-035db93e2323-177x142.jpg",
+                title: " The human story of uniqueness",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.Eliget,error perspiciatis libero vel odit"
+            },
+            {
+                url: "photo-1447430617419-95715602278e-177x142.jpg",
+                title: " Sustainable trade taticts",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.Eliget,error perspiciatis libero vel odit"
+            }
+                , {
+                url: "photo-1460230525622-630fe3294cd7-177x142.jpg",
+                title: "Farmers Making difference",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.Eliget,error perspiciatis libero vel odit"
+            }
+                , {
+                url: "photo-1460600421604-5e138c208b9c-177x142.jpg",
+                title: "Meeting remote tributes in Peru",
+                text: "Lorem ipsum dolor sit amet consectetur adipisicing elit.Eliget,error perspiciatis libero vel odit"
+            }
+
+            ]
 
         }
+
     }
-}</script>
+}
+</script>
 <template>
     <section class="content">
 
@@ -47,6 +104,12 @@ export default {
 
 
     </section>
+
+    <sectionValue :listValues="valuesList" />
+
+
+
+    <!-- section value company da rimuovere in fase di revisione
     <section class="value-company">
         <div class="container">
             <h2>Our Values</h2>
@@ -88,12 +151,17 @@ export default {
 
 
     </section>
+    -->
     <section class="last-causes">
         <div class="container">
             <h2>Recent Causes</h2>
             <p>We run projects in over 30 countries in 5 continets</p>
             <div class="slider-image">
-                <div class="image-box"><img src="../assets/images/avada-charity-fair-trade-featured-200x150.jpg" alt="">
+                <div class="image-box" v-for="(url, index) in urlImageCause" :key="index">
+                    <CardImage :imageUrl="url" />
+                </div>
+
+                <!--<div class="image-box"><img src="../assets/images/avada-charity-fair-trade-featured-200x150.jpg" alt="">
                 </div>
                 <div class="image-box"><img src="../assets/images/avada-charity-farming-featured-200x150.jpg" alt="">
                 </div>
@@ -101,6 +169,9 @@ export default {
                 </div>
                 <div class="image-box"><img src="../assets/images/avada-charity-vaccines-featured-200x150.jpg" alt="">
                 </div>
+                -->
+
+
             </div>
 
         </div>
@@ -132,8 +203,21 @@ export default {
                     </div>
                 </div>
                 <div class="col-aside-card">
+                    <div class="card card-sm" v-for="(card, index) in urlImageAside" :key="index">
+                        <div class="card-image-box">
+                            <CardImage :imageUrl="card.url" />
+                        </div>
+                        <div class="card-text">
+                            <p class="title-card-box-text">
+                                {{ card.title }}
+                            </p>
+                            <p class="sub-title">{{ card.text }}</p>
+                        </div>
+                    </div>
+
+                    <!-- 
                     <div class="card card-sm">
-                        <div class="card-image">
+                        <div class="card-image-box">
                             <img src="../assets/images/photo-1444664597500-035db93e2323-177x142.jpg" alt="">
                         </div>
                         <div class="card-text">
@@ -148,7 +232,7 @@ export default {
 
 
                     <div class="card card-sm">
-                        <div class="card-image">
+                        <div class="card-image-box">
                             <img src="../assets/images/photo-1444664597500-035db93e2323-177x142.jpg" alt="">
                         </div>
                         <div class="card-text">
@@ -162,7 +246,7 @@ export default {
                     </div>
 
                     <div class="card card-sm">
-                        <div class="card-image">
+                        <div class="card-image-box">
                             <img src="../assets/images/photo-1444664597500-035db93e2323-177x142.jpg" alt="">
                         </div>
                         <div class="card-text">
@@ -173,7 +257,7 @@ export default {
                         </div>
                     </div>
                     <div class="card card-sm">
-                        <div class="card-image">
+                        <div class="card-image-box">
                             <img src="../assets/images/photo-1444664597500-035db93e2323-177x142.jpg" alt="">
                         </div>
                         <div class="card-text">
@@ -184,6 +268,7 @@ export default {
                         </div>
 
                     </div>
+                    -->
                 </div>
 
             </div>
@@ -505,7 +590,7 @@ export default {
             margin-bottom: 0;
         }
 
-        .card-image {
+        .card-image-box {
             width: 35%;
         }
 

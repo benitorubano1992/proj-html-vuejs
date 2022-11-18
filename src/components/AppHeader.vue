@@ -1,6 +1,9 @@
 <script>
 export default {
     name: "AppHeader",
+    props: {
+        listLinks: Array
+    },
     data() {
         return {
 
@@ -23,11 +26,19 @@ export default {
                 </div>
                 <nav>
                     <ul>
+                        <li v-for="(link, index) in listLinks" :key="index">
+                            <a :href="link.href" :class="{ 'active': link.active, 'btn btn-action': index === 4 }">{{
+                                    link.title
+                            }}</a>
+                        </li>
+
+                        <!--
                         <li><a href="#" class="active">home</a></li>
                         <li><a href="#">mission</a></li>
                         <li><a href="#">causes</a></li>
                         <li><a href="#">journal</a></li>
                         <li><a href="#" class="btn btn-action">donate</a></li>
+                        -->
                     </ul>
                 </nav>
             </div>

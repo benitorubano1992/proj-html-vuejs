@@ -1,6 +1,9 @@
 <script>
 export default {
     name: "AppFooter",
+    props: {
+        iconList: Array
+    },
     data() {
         return {
 
@@ -16,10 +19,26 @@ export default {
         <div class="footer-top">
             <img src="../assets/images/avada-charity-sticky-header-logo.png" alt="">
         </div>
+        <div class="footer-bottom">
+            <small>&copy; copyright 2012 - 2020 AVADA THEME BY TEAM FUSION | ALL RIGHTS RESERVED | POWERED BY
+                WORDPRESS</small>
+            <div class="icon-list">
+                <div class="icon" v-for="(icon, index) in iconList">
+                    <i class="fa-brands" :class="icon"></i>
+                </div>
+            </div>
+
+
+        </div>
+
     </footer>
 </template>
-<style lang="scss" scoped>
+<style lang= "scss" scoped>
 @use "../style/partials/variables" as *;
+
+footer {
+    background-color: green;
+}
 
 .footer-top {
     display: flex;
