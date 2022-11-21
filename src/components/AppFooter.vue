@@ -22,11 +22,11 @@ export default {
         <div class="footer-bottom">
             <small>&copy; copyright 2012 - 2020 AVADA THEME BY TEAM FUSION | ALL RIGHTS RESERVED | POWERED BY
                 WORDPRESS</small>
-            <div class="icon-list">
-                <div class="icon" v-for="(icon, index) in iconList">
-                    <i class="fa-brands" :class="icon"></i>
-                </div>
-            </div>
+            <ul class="icon-list">
+                <li class="icon" v-for="(icon, index) in iconList">
+                    <a href="#"><i class="fa-brands" :class="icon"></i></a>
+                </li>
+            </ul>
 
 
         </div>
@@ -38,16 +38,45 @@ export default {
 
 footer {
     background-color: green;
-}
 
-.footer-top {
-    display: flex;
-    justify-content: center;
-    padding: 1rem 0;
-    background-color: white;
 
-    img {
-        height: 50px;
+    .footer-top {
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0;
+        background-color: white;
+
+        img {
+            height: 50px;
+        }
     }
+
+    .footer-bottom {
+        padding: 1rem 0;
+        text-align: center;
+        color: gray;
+        background-color: $bg-foot-bt;
+
+        ul {
+            display: flex;
+            justify-content: center;
+            margin-top: 1.5rem;
+
+            li {
+                margin-right: 1.5rem;
+                width: 35px;
+                height: 35px;
+                color: $color-bt;
+                border-radius: 50%;
+                background-color: white;
+                line-height: 35px;
+                text-align: center;
+            }
+
+
+        }
+
+    }
+
 }
 </style>
