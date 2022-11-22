@@ -1,21 +1,31 @@
 <script>
+import SectionTitle from './SectionTitle.vue';
 export default {
     name: "sectionValue",
     props: {
         listValues: Array,
     },
-    Data() {
+    components: {
+        SectionTitle
+    },
+    data() {
         return {
-
+            provaTitolo: {
+                titolo: "Our Values",
+                sottotit: "Think Big Act Bigger"
+            }
         }
     }
 
-}</script>
+}
+</script>
 <template>
     <section class="value-company">
         <div class="container">
-            <h2>Our Values</h2>
-            <p>Thimk Big Act Bigger</p>
+            <!--<h2>Our Values</h2>
+            <p>Think Big Act Bigger</p>
+            -->
+            <SectionTitle :testo="provaTitolo" />
             <ul class="list-values">
                 <li v-for="(value, index) in listValues" :key="index">
                     <i class="fa-solid" :class="value.class"></i>
@@ -23,29 +33,6 @@ export default {
                     <p>{{ value.text }}</p>
                     <a href="#" class="btn btn-action">Learn More</a>
                 </li>
-                <!--<li>
-                    <i class="fa-solid fa-stethoscope"></i>
-                    <span>Vaccinations</span>
-                    <p>Nullam convalis,orci in congue aliquet diam mauris curson urna id maximum lectus magna maximus
-                    </p>
-                    <a href="#" class="btn btn-action">Learn More</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span>Education</span>
-                    <p>Nullam convalis,orci in congue aliquet diam mauris curson urna id maximum lectus magna maximus
-                    </p>
-                    <a href="#" class="btn btn-action">Learn More</a>
-                </li>
-                <li>
-                    <i class="fa-solid fa-graduation-cap"></i>
-                    <span>Education</span>
-                    <p>Nullam convalis,orci in congue aliquet diam mauris curson urna id maximum lectus magna maximus
-                    </p>
-                    <a href="#" class="btn btn-action">Learn More</a>
-                </li>
-            -->
-
             </ul>
 
 

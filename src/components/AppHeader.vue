@@ -19,6 +19,8 @@ export default {
 </script>
 <template>
     <header>
+
+
         <div class="container">
             <div class="header-top">
                 <div class="header-logo">
@@ -61,15 +63,22 @@ export default {
     </header>
 </template>
 <style lang="scss" scoped>
+@use "../style/partials/variables" as *;
+
 header {
     background-color: black;
     color: white;
     font-weight: lighter;
+    position: relative;
     background-image: url(../assets/images/home-page-slider.jpg);
     background-size: cover;
-    height: 100vh;
 
-    .container {
+    background-repeat: no-repeat;
+    height: 500px;
+
+
+
+    img .container {
         width: 90%;
         margin: 0 auto;
     }
@@ -79,6 +88,7 @@ header {
         align-items: center;
         justify-content: space-between;
         padding: 0.6rem 0;
+
 
         .header-logo {
             img {
@@ -106,19 +116,24 @@ header {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        min-height: 200px;
+
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        z-index: 999;
 
         h1,
         p {
             margin-top: 1rem;
         }
 
+        p {
+            margin-bottom: 2rem;
+        }
+
         .action-btn {
-            margin-top: 1.5rem;
+            margin-top: 2rem;
 
             ul {
                 display: flex;
@@ -127,6 +142,10 @@ header {
                 li:first-child {
                     margin-right: 1rem;
 
+                    .btn {
+                        color: $color-bt;
+                        border-color: $color-bt;
+                    }
                 }
 
             }
